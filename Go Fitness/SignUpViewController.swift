@@ -8,7 +8,7 @@
 import UIKit
 import Firebase
 
-class SignUpViewController: UIViewController {
+class SignUpViewController: UIViewController, UITextFieldDelegate {
     let profileSegueIdentifier: String = "profileSegueIdentifier"
 
     var dbReference: DatabaseReference?
@@ -21,6 +21,10 @@ class SignUpViewController: UIViewController {
     
     override func viewDidLoad() {
         super.viewDidLoad()
+        self.nameTextField.delegate = self;
+        self.emailTextField.delegate = self;
+        self.passwordTextField.delegate = self;
+        self.rePasswordTextField.delegate = self;
     }
     
     override func didReceiveMemoryWarning() {
@@ -68,6 +72,11 @@ class SignUpViewController: UIViewController {
         }
     }
     
+    func textFieldShouldReturn(_ textField: UITextField) -> Bool {
+        self.view.endEditing(true)
+        return false
+    }
+    
     @IBAction func backgroundTap(_ sender: UIControl) {
         nameTextField.resignFirstResponder()
         emailTextField.resignFirstResponder()
@@ -75,7 +84,7 @@ class SignUpViewController: UIViewController {
         rePasswordTextField.resignFirstResponder()
     }
     
-    @IBAction func textFieldDoneEditing(_ sender: UITextField) {
+    @IBAction func textFieldFinishedEditing(_ sender: UITextField) {
         sender.resignFirstResponder()
     }
 

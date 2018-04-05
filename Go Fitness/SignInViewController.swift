@@ -8,7 +8,7 @@
 import UIKit
 import Firebase
 
-class LoginViewController: UIViewController {
+class SignInViewController: UIViewController, UITextFieldDelegate {
     let loginViewToProfileViewSegueIdentifier: String = "loginViewToProfileViewSegueIdentifier"
 
     @IBOutlet weak var emailTextField: UITextField!
@@ -17,6 +17,8 @@ class LoginViewController: UIViewController {
     override func viewDidLoad() {
         super.viewDidLoad()
         // Do any additional setup after loading the view, typically from a nib.
+        self.emailTextField.delegate = self;
+        self.passwordTextField.delegate = self;
     }
     
     override func didReceiveMemoryWarning() {
@@ -44,11 +46,16 @@ class LoginViewController: UIViewController {
         // [END headless_email_auth]
     }
 
-    @IBAction func textFieldDoneEditing(_ sender: UITextField) {
+    func textFieldShouldReturn(_ textField: UITextField) -> Bool {
+        self.view.endEditing(true)
+        return false
+    }
+    
+    @IBAction func textFieldFinishedEditing(_ sender: UITextField) {
         sender.resignFirstResponder()
     }
     
-    @IBAction func backgroundTap(_ sender: UIControl) {
+    @IBAction func backgroundTap(_ sender: Any) {
         emailTextField.resignFirstResponder()
         passwordTextField.resignFirstResponder()
     }

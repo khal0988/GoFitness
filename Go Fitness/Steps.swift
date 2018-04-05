@@ -18,7 +18,6 @@ class Steps {
     var numStepsString: String = ""
     var midnightOfToday: Date = Date()
     
-    
     func setUp(){
         let units: Set<Calendar.Component> = [.year, .month, .day, .hour, .minute, .second]
         var comps = cal.dateComponents(units, from: Date())

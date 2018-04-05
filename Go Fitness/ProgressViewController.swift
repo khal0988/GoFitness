@@ -78,7 +78,6 @@ class ProgressViewController: UIViewController, ChartViewDelegate {
             
             self.lineChartView.delegate = self
             self.lineChartView.xAxis.labelPosition = .bottom
-//            self.lineChartView.rightAxis.drawLabelsEnabled = false
             self.lineChartView.xAxis.setLabelCount(self.days.count, force: true)
             self.lineChartView.chartDescription?.text = "Weight loss update"
             self.lineChartView.gridBackgroundColor = UIColor.blue
