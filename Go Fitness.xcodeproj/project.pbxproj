@@ -16,6 +16,7 @@
 		B22C6CFC206AE8D000768BCC /* SearchViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = B22C6CFB206AE8D000768BCC /* SearchViewController.swift */; };
 		B251BBA8206D97F500D944A4 /* VideosTableViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = B251BBA7206D97F500D944A4 /* VideosTableViewController.swift */; };
 		B251BBAA206D98B300D944A4 /* YoutubeDataTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = B251BBA9206D98B300D944A4 /* YoutubeDataTableViewCell.swift */; };
+		B254E2F22076B7C000FA77A8 /* AddCaloriesViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = B254E2F12076B7C000FA77A8 /* AddCaloriesViewController.swift */; };
 		B26F0A29206F14AE003DD375 /* ProgressViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = B26F0A28206F14AE003DD375 /* ProgressViewController.swift */; };
 		B2832DD120744ED00093418E /* CaloriesViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = B2832DD020744ED00093418E /* CaloriesViewController.swift */; };
 		B2832DD3207458C80093418E /* Food.swift in Sources */ = {isa = PBXBuildFile; fileRef = B2832DD2207458C80093418E /* Food.swift */; };
@@ -65,6 +66,7 @@
 		B22C6CFB206AE8D000768BCC /* SearchViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SearchViewController.swift; sourceTree = "<group>"; };
 		B251BBA7206D97F500D944A4 /* VideosTableViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = VideosTableViewController.swift; sourceTree = "<group>"; };
 		B251BBA9206D98B300D944A4 /* YoutubeDataTableViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = YoutubeDataTableViewCell.swift; sourceTree = "<group>"; };
+		B254E2F12076B7C000FA77A8 /* AddCaloriesViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AddCaloriesViewController.swift; sourceTree = "<group>"; };
 		B26F0A28206F14AE003DD375 /* ProgressViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ProgressViewController.swift; sourceTree = "<group>"; };
 		B2832DD020744ED00093418E /* CaloriesViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CaloriesViewController.swift; sourceTree = "<group>"; };
 		B2832DD2207458C80093418E /* Food.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Food.swift; sourceTree = "<group>"; };
@@ -188,6 +190,7 @@
 				B2C5439B2072AEC2004CA05B /* Steps.swift */,
 				B2832DD020744ED00093418E /* CaloriesViewController.swift */,
 				B2832DD2207458C80093418E /* Food.swift */,
+				B254E2F12076B7C000FA77A8 /* AddCaloriesViewController.swift */,
 			);
 			path = "Go Fitness";
 			sourceTree = "<group>";
@@ -531,6 +534,7 @@
 				B2A0F573206B06360012877B /* RecentPlacesDeck.swift in Sources */,
 				B22C6CF62069BDDA00768BCC /* CalculateBMI.swift in Sources */,
 				B2A0F576206D6AE50012877B /* WorkoutTableViewController.swift in Sources */,
+				B254E2F22076B7C000FA77A8 /* AddCaloriesViewController.swift in Sources */,
 				B2832DD3207458C80093418E /* Food.swift in Sources */,
 				B970E3252062BF9800CA9265 /* AppDelegate.swift in Sources */,
 				B251BBAA206D98B300D944A4 /* YoutubeDataTableViewCell.swift in Sources */,
