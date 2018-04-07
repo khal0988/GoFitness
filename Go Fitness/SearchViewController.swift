@@ -22,11 +22,14 @@ class SearchViewController: UITableViewController, GMSPlacePickerViewControllerD
     
     override func viewDidLoad() {
         super.viewDidLoad()
-
+        let akankshasColor = UIColor(red: CGFloat(0.053), green: CGFloat(0.069), blue: CGFloat(0.095), alpha: 1);
+        self.navigationController?.navigationBar.backgroundColor = akankshasColor
+        self.recentPlacesTableView.tableFooterView = UIView()
         
         if Auth.auth().currentUser?.uid == nil {
             handleLogout()
         }
+        
         // get logged in user
         let userID = Auth.auth().currentUser?.uid
         

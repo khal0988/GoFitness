@@ -7,6 +7,8 @@
 
 import UIKit
 import Firebase
+import FBSDKLoginKit
+
 
 class SignUpViewController: UIViewController, UITextFieldDelegate {
     let profileSegueIdentifier: String = "profileSegueIdentifier"
@@ -18,6 +20,7 @@ class SignUpViewController: UIViewController, UITextFieldDelegate {
     @IBOutlet weak var emailTextField: UITextField!
     @IBOutlet weak var passwordTextField: UITextField!
     @IBOutlet weak var rePasswordTextField: UITextField!
+    @IBOutlet weak var agreeAndJoinButton: UIButton!
     
     override func viewDidLoad() {
         super.viewDidLoad()
@@ -25,7 +28,29 @@ class SignUpViewController: UIViewController, UITextFieldDelegate {
         self.emailTextField.delegate = self;
         self.passwordTextField.delegate = self;
         self.rePasswordTextField.delegate = self;
+        
+        let akankshasColor = UIColor(red: CGFloat(0.053), green: CGFloat(0.069), blue: CGFloat(0.095), alpha: 1);
+        self.view.backgroundColor = akankshasColor;
+        self.nameTextField.backgroundColor = akankshasColor;
+        self.emailTextField.backgroundColor = akankshasColor;
+        self.passwordTextField.backgroundColor = akankshasColor;
+        self.rePasswordTextField.backgroundColor = akankshasColor;
+        
+        self.nameTextField.attributedPlaceholder = NSAttributedString(string: "Name",
+                                                                          attributes: [NSAttributedStringKey.foregroundColor: UIColor.gray])
+        self.emailTextField.attributedPlaceholder = NSAttributedString(string: "Email",
+                                                                       attributes: [NSAttributedStringKey.foregroundColor: UIColor.gray])
+        self.passwordTextField.attributedPlaceholder = NSAttributedString(string: "Password",
+                                                                          attributes: [NSAttributedStringKey.foregroundColor: UIColor.gray])
+        self.rePasswordTextField.attributedPlaceholder = NSAttributedString(string: "Re-enter Password",
+                                                                          attributes: [NSAttributedStringKey.foregroundColor: UIColor.gray])
+        let cyan = UIColor(red: CGFloat(0), green: CGFloat(0.6), blue: CGFloat(0.4), alpha: 1);
+        let teal = UIColor(red: CGFloat(0), green: CGFloat(0.4), blue: CGFloat(0.5), alpha: 1);
+        self.agreeAndJoinButton.applyGradient(colours: [cyan, teal])
+        
     }
+
+
     
     override func didReceiveMemoryWarning() {
         super.didReceiveMemoryWarning()
@@ -64,12 +89,12 @@ class SignUpViewController: UIViewController, UITextFieldDelegate {
                 self.dbReference = Database.database().reference()
                 self.dbReference?.child("users").child(userID).child("name").setValue(name)
                 self.dbReference?.child("users").child(userID).child("email").setValue(email)
-                self.dbReference?.child("users").child(userID).child("password").setValue(password)
                 
                 // jump to profile view
                 self.performSegue(withIdentifier: self.profileSegueIdentifier, sender: self)
             }
         }
+        
     }
     
     func textFieldShouldReturn(_ textField: UITextField) -> Bool {

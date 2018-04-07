@@ -21,6 +21,8 @@ class AddCaloriesViewController: UIViewController, UITextFieldDelegate, UIPicker
     
     override func viewDidLoad() {
         super.viewDidLoad()
+        let akankshasColor = UIColor(red: CGFloat(0.053), green: CGFloat(0.069), blue: CGFloat(0.095), alpha: 1);
+        self.navigationController?.navigationBar.backgroundColor = akankshasColor
         self.caloriesTextField.delegate = self;
         self.nameTextField.delegate = self;
         // Do any additional setup after loading the view.

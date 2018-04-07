@@ -20,6 +20,7 @@ class ProfileViewController: UIViewController, UIImagePickerControllerDelegate, 
     @IBOutlet weak var bmiField: UILabel! //populate once user enters weight, height, gender
     @IBOutlet weak var calorieTextField: UILabel! //populate once user enters weight, height, gender
     
+    @IBOutlet weak var headerView: UIView!
     @IBOutlet weak var genderPicker: UIPickerView!
     
     private let NUM_COMPONENTS = 1
@@ -28,9 +29,18 @@ class ProfileViewController: UIViewController, UIImagePickerControllerDelegate, 
     
     override func viewDidLoad() {
         super.viewDidLoad()
-        //        UIApplication.shared.isNetworkActivityIndicatorVisible = true
+        let akankshasColor = UIColor(red: CGFloat(0.053), green: CGFloat(0.069), blue: CGFloat(0.095), alpha: 1);
+        let cyan = UIColor(red: CGFloat(0), green: CGFloat(0.6), blue: CGFloat(0.4), alpha: 1);
+        let teal = UIColor(red: CGFloat(0), green: CGFloat(0.4), blue: CGFloat(0.5), alpha: 1);
+        self.navigationController?.navigationBar.backgroundColor = akankshasColor
+        self.headerView.applyGradient(colours: [cyan, teal])
         
-        
+        self.profileImageView.layer.borderWidth = 3.0;
+        self.profileImageView.layer.borderColor = UIColor.white.cgColor
+        self.profileImageView.layer.cornerRadius = profileImageView.frame.width / 2
+        self.profileImageView.layer.masksToBounds = true
+
+
         if Auth.auth().currentUser?.uid == nil {
             handleLogout()
         }
@@ -110,7 +120,7 @@ class ProfileViewController: UIViewController, UIImagePickerControllerDelegate, 
     
     @IBAction func saveButton(_ sender: UIBarButtonItem) {
         let alert = UIAlertController(title: "Update Profile", message: nil, preferredStyle: .actionSheet)
-        alert.addAction(UIAlertAction(title: "Update", style: .default, handler: { _ in
+        alert.addAction(UIAlertAction(title: "Save", style: .default, handler: { _ in
             self.updateUserProfile()
         }))
         
@@ -161,6 +171,7 @@ class ProfileViewController: UIViewController, UIImagePickerControllerDelegate, 
                 self.displayAlert(myTitle: "Error", myMessage: message)
                 return
         }
+        
         let cm = CalculateBMI(weight: weight, height: height)
         let bmi = cm.calcBmi()
         
@@ -204,30 +215,19 @@ class ProfileViewController: UIViewController, UIImagePickerControllerDelegate, 
                 let imageUrl = UserMetadata?.downloadURL()?.absoluteString
                 Database.database().reference().child("users").child(userID).child("imageUrl").setValue(imageUrl, withCompletionBlock: { (error, ref) in
                     print("Completed")
-                    self.stopActivityIndicator(myAlert: myAlert)
+                    self.dismissSavingAlert(myAlert: myAlert)
                 })
             })
         }
     }
     
-    private func stopActivityIndicator(myAlert: UIAlertController) {
+    private func dismissSavingAlert(myAlert: UIAlertController) {
         myAlert.dismiss(animated: true, completion: nil)
     }
     
     private func displayActivityIndicator(message: String) -> UIAlertController {
         let pendingSavingAlert = UIAlertController(title: message, message: nil, preferredStyle: .alert)
-        
-        let myActivityIndicator = UIActivityIndicatorView(activityIndicatorStyle: UIActivityIndicatorViewStyle.gray)
-        // Position Activity Indicator in the center of the main view
-        myActivityIndicator.center = self.view.center
-        
-        // If needed, you can prevent Acivity Indicator from hiding when stopAnimating() is called
-        myActivityIndicator.hidesWhenStopped = true
-        pendingSavingAlert.view.addSubview(myActivityIndicator)
-        // Start Activity Indicator
-        myActivityIndicator.startAnimating()
         self.present(pendingSavingAlert, animated: true, completion: nil)
-        
         return pendingSavingAlert
     }
     

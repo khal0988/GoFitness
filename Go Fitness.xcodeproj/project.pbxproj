@@ -17,6 +17,7 @@
 		B251BBA8206D97F500D944A4 /* VideosTableViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = B251BBA7206D97F500D944A4 /* VideosTableViewController.swift */; };
 		B251BBAA206D98B300D944A4 /* YoutubeDataTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = B251BBA9206D98B300D944A4 /* YoutubeDataTableViewCell.swift */; };
 		B254E2F22076B7C000FA77A8 /* AddCaloriesViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = B254E2F12076B7C000FA77A8 /* AddCaloriesViewController.swift */; };
+		B25F779A207837B10077D9B6 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = B25F7799207837B00077D9B6 /* Assets.xcassets */; };
 		B26F0A29206F14AE003DD375 /* ProgressViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = B26F0A28206F14AE003DD375 /* ProgressViewController.swift */; };
 		B2832DD120744ED00093418E /* CaloriesViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = B2832DD020744ED00093418E /* CaloriesViewController.swift */; };
 		B2832DD3207458C80093418E /* Food.swift in Sources */ = {isa = PBXBuildFile; fileRef = B2832DD2207458C80093418E /* Food.swift */; };
@@ -27,7 +28,6 @@
 		B970E3252062BF9800CA9265 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = B970E3242062BF9800CA9265 /* AppDelegate.swift */; };
 		B970E3272062BF9800CA9265 /* SignInViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = B970E3262062BF9800CA9265 /* SignInViewController.swift */; };
 		B970E32A2062BF9800CA9265 /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = B970E3282062BF9800CA9265 /* Main.storyboard */; };
-		B970E32C2062BF9800CA9265 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = B970E32B2062BF9800CA9265 /* Assets.xcassets */; };
 		B970E32F2062BF9800CA9265 /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = B970E32D2062BF9800CA9265 /* LaunchScreen.storyboard */; };
 		B970E33A2062BF9800CA9265 /* Go_FitnessTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = B970E3392062BF9800CA9265 /* Go_FitnessTests.swift */; };
 		B970E3452062BF9800CA9265 /* Go_FitnessUITests.swift in Sources */ = {isa = PBXBuildFile; fileRef = B970E3442062BF9800CA9265 /* Go_FitnessUITests.swift */; };
@@ -67,6 +67,7 @@
 		B251BBA7206D97F500D944A4 /* VideosTableViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = VideosTableViewController.swift; sourceTree = "<group>"; };
 		B251BBA9206D98B300D944A4 /* YoutubeDataTableViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = YoutubeDataTableViewCell.swift; sourceTree = "<group>"; };
 		B254E2F12076B7C000FA77A8 /* AddCaloriesViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AddCaloriesViewController.swift; sourceTree = "<group>"; };
+		B25F7799207837B00077D9B6 /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
 		B26F0A28206F14AE003DD375 /* ProgressViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ProgressViewController.swift; sourceTree = "<group>"; };
 		B2832DD020744ED00093418E /* CaloriesViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CaloriesViewController.swift; sourceTree = "<group>"; };
 		B2832DD2207458C80093418E /* Food.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Food.swift; sourceTree = "<group>"; };
@@ -79,7 +80,6 @@
 		B970E3242062BF9800CA9265 /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		B970E3262062BF9800CA9265 /* SignInViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SignInViewController.swift; sourceTree = "<group>"; };
 		B970E3292062BF9800CA9265 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/Main.storyboard; sourceTree = "<group>"; };
-		B970E32B2062BF9800CA9265 /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
 		B970E32E2062BF9800CA9265 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/LaunchScreen.storyboard; sourceTree = "<group>"; };
 		B970E3302062BF9800CA9265 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		B970E3352062BF9800CA9265 /* Go FitnessTests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = "Go FitnessTests.xctest"; sourceTree = BUILT_PRODUCTS_DIR; };
@@ -172,11 +172,11 @@
 				B970E3242062BF9800CA9265 /* AppDelegate.swift */,
 				B970E3262062BF9800CA9265 /* SignInViewController.swift */,
 				B970E3282062BF9800CA9265 /* Main.storyboard */,
-				B970E32B2062BF9800CA9265 /* Assets.xcassets */,
 				B970E32D2062BF9800CA9265 /* LaunchScreen.storyboard */,
 				B970E3302062BF9800CA9265 /* Info.plist */,
 				B970E3522062C80400CA9265 /* SignUpViewController.swift */,
 				B9D4147A20645CE4004A54B6 /* ProfileViewController.swift */,
+				B25F7799207837B00077D9B6 /* Assets.xcassets */,
 				B22C6CF32066F69A00768BCC /* GoogleService-Info.plist */,
 				B22C6CF52069BDDA00768BCC /* CalculateBMI.swift */,
 				B22C6CF72069C2B500768BCC /* CalculateCalorie.swift */,
@@ -330,7 +330,7 @@
 			files = (
 				B970E32F2062BF9800CA9265 /* LaunchScreen.storyboard in Resources */,
 				B22C6CF42066F69A00768BCC /* GoogleService-Info.plist in Resources */,
-				B970E32C2062BF9800CA9265 /* Assets.xcassets in Resources */,
+				B25F779A207837B10077D9B6 /* Assets.xcassets in Resources */,
 				B970E32A2062BF9800CA9265 /* Main.storyboard in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
@@ -477,7 +477,10 @@
 			);
 			inputPaths = (
 				"${SRCROOT}/Pods/Target Support Files/Pods-Go Fitness/Pods-Go Fitness-frameworks.sh",
+				"${BUILT_PRODUCTS_DIR}/Bolts/Bolts.framework",
 				"${BUILT_PRODUCTS_DIR}/Charts/Charts.framework",
+				"${BUILT_PRODUCTS_DIR}/FBSDKCoreKit/FBSDKCoreKit.framework",
+				"${BUILT_PRODUCTS_DIR}/FBSDKLoginKit/FBSDKLoginKit.framework",
 				"${BUILT_PRODUCTS_DIR}/GTMSessionFetcher/GTMSessionFetcher.framework",
 				"${BUILT_PRODUCTS_DIR}/GoogleToolboxForMac/GoogleToolboxForMac.framework",
 				"${BUILT_PRODUCTS_DIR}/leveldb-library/leveldb.framework",
@@ -485,7 +488,10 @@
 			);
 			name = "[CP] Embed Pods Frameworks";
 			outputPaths = (
+				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/Bolts.framework",
 				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/Charts.framework",
+				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/FBSDKCoreKit.framework",
+				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/FBSDKLoginKit.framework",
 				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/GTMSessionFetcher.framework",
 				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/GoogleToolboxForMac.framework",
 				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/leveldb.framework",

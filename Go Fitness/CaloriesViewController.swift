@@ -9,13 +9,13 @@ import UIKit
 import Firebase
 
 class CaloriesViewController: UIViewController, UITableViewDataSource, UITableViewDelegate {
-
+    
     @IBOutlet weak var remainingTextField: UITextField!
     @IBOutlet weak var currentTextField: UITextField!
     @IBOutlet weak var goalTextField: UITextField!
     
     let LoginControllerIdentifier = "LoginControllerIdentifier"
-
+    
     @IBOutlet weak var breakfastTableView: UITableView!
     @IBOutlet weak var lunchTableView: UITableView!
     @IBOutlet weak var dinnerTableView: UITableView!
@@ -26,6 +26,12 @@ class CaloriesViewController: UIViewController, UITableViewDataSource, UITableVi
     @IBOutlet weak var dinnerLabelTotal: UILabel!
     @IBOutlet weak var snackLabelTotal: UILabel!
     
+    @IBOutlet weak var breakfastView: UIView!
+    @IBOutlet weak var lunchView: UIView!
+    @IBOutlet weak var dinnerView: UIView!
+    @IBOutlet weak var snackView: UIView!
+    
+    @IBOutlet weak var remainingCaloriesView: UIView!
     
     var breakfast : [String] = []
     var lunch : [String] = []
@@ -47,8 +53,20 @@ class CaloriesViewController: UIViewController, UITableViewDataSource, UITableVi
     
     override func viewDidLoad() {
         super.viewDidLoad()
-        getDailyCalories()
+        let akankshasColor = UIColor(red: CGFloat(0.053), green: CGFloat(0.069), blue: CGFloat(0.095), alpha: 1);
+        let cyan = UIColor(red: CGFloat(0), green: CGFloat(0.6), blue: CGFloat(0.4), alpha: 1);
+        let teal = UIColor(red: CGFloat(0), green: CGFloat(0.4), blue: CGFloat(0.5), alpha: 1);
+        
+        self.navigationController?.navigationBar.backgroundColor = akankshasColor
+        
+        self.remainingCaloriesView.applyGradient(colours: [cyan, teal])
+        self.breakfastView.applyGradient(colours: [cyan, teal])
+        self.lunchView.applyGradient(colours: [cyan, teal])
+        self.dinnerView.applyGradient(colours: [cyan, teal])
+        self.snackView.applyGradient(colours: [cyan, teal])
 
+        getDailyCalories()
+        
         breakfastTableView.dataSource = self
         breakfastTableView.delegate = self
         breakfastTableView.register(UITableViewCell.self, forCellReuseIdentifier: "breakfastCell")
@@ -56,7 +74,7 @@ class CaloriesViewController: UIViewController, UITableViewDataSource, UITableVi
         lunchTableView.dataSource = self
         lunchTableView.delegate = self
         lunchTableView.register(UITableViewCell.self, forCellReuseIdentifier: "lunchCell")
-      
+        
         dinnerTableView.dataSource = self
         dinnerTableView.delegate = self
         dinnerTableView.register(UITableViewCell.self, forCellReuseIdentifier: "dinnerCell")
@@ -67,10 +85,14 @@ class CaloriesViewController: UIViewController, UITableViewDataSource, UITableVi
         
         populateData()
         
-
-
+        breakfastTableView.allowsSelection = false
+        lunchTableView.allowsSelection = false
+        dinnerTableView.allowsSelection = false
+        snackTableView.allowsSelection = false
+        
+        
     }
-
+    
     override func didReceiveMemoryWarning() {
         super.didReceiveMemoryWarning()
         // Dispose of any resources that can be recreated.
@@ -79,7 +101,7 @@ class CaloriesViewController: UIViewController, UITableViewDataSource, UITableVi
     override func viewDidAppear(_ animated: Bool) {
         super.viewDidAppear(true)
         getDailyCalories()
-
+        
     }
     
     private func populateData(){
@@ -117,8 +139,7 @@ class CaloriesViewController: UIViewController, UITableViewDataSource, UITableVi
                         self.lunchTotal = self.lunchCalories.reduce(0, +)
                         self.lunchLabelTotal.text = String(describing: self.lunchTotal)
                         self.totalCalories += self.lunchTotal
-
-
+                        
                     }
                     if(meal.key as? String == "Dinner"){
                         let myMeal = meal.value as? NSDictionary
@@ -127,9 +148,7 @@ class CaloriesViewController: UIViewController, UITableViewDataSource, UITableVi
                         self.dinnerTotal = self.dinnerCalories.reduce(0, +)
                         self.dinnerLabelTotal.text = String(describing: self.dinnerTotal)
                         self.totalCalories += self.dinnerTotal
-
-
-
+                        
                     }
                     if(meal.key as? String == "Snack"){
                         let myMeal = meal.value as? NSDictionary
@@ -138,14 +157,13 @@ class CaloriesViewController: UIViewController, UITableViewDataSource, UITableVi
                         self.snackTotal = self.snackCalories.reduce(0, +)
                         self.snackLabelTotal.text = String(describing: self.snackTotal)
                         self.totalCalories += self.snackTotal
-
-
+                        
                     }
                 }
                 
                 self.currentTextField.text = String(describing: self.totalCalories)
                 self.remainingTextField.text = String(describing: Int(self.dailyCalories)! - self.totalCalories)
-
+                
             }
             
             // update table view
@@ -153,13 +171,13 @@ class CaloriesViewController: UIViewController, UITableViewDataSource, UITableVi
             self.lunchTableView.reloadData()
             self.dinnerTableView.reloadData()
             self.snackTableView.reloadData()
-
+            
             
         }) { (error) in
             print(error.localizedDescription)
         }
-
-            
+        
+        
     }
     
     @IBAction func logOutButton(_ sender: UIBarButtonItem) {
@@ -172,7 +190,7 @@ class CaloriesViewController: UIViewController, UITableViewDataSource, UITableVi
         
         self.present(alert, animated: true, completion: nil)
     }
-
+    
     
     func handleLogout() {
         do {
@@ -197,7 +215,7 @@ class CaloriesViewController: UIViewController, UITableViewDataSource, UITableVi
             print("--------")
             print(self.dailyCalories)
             self.remainingTextField.text = String(describing: Int(self.dailyCalories)!  - self.totalCalories)
-
+            
             
         }) { (error) in
             print(error.localizedDescription)
@@ -233,6 +251,7 @@ class CaloriesViewController: UIViewController, UITableViewDataSource, UITableVi
         
         if tableView == self.breakfastTableView {
             cell = breakfastTableView?.dequeueReusableCell(withIdentifier: "breakfastCell", for: indexPath)
+            
             // Configure the cell...
             if (cell == nil) {
                 cell = UITableViewCell(style: UITableViewCellStyle.default, reuseIdentifier: "breakfastCell")
@@ -242,7 +261,12 @@ class CaloriesViewController: UIViewController, UITableViewDataSource, UITableVi
             let label = UILabel.init(frame: CGRect(x:50,y:0,width:50,height:20))
             label.text = String(describing: breakfastCalories[indexPath.row])
             cell!.accessoryView = label
-            
+//            
+//            cell!.layer.frame.size.height = 5
+//            cell!.layer.cornerRadius = 10 //set corner radius here
+//            cell!.layer.borderColor = UIColor.black.cgColor  // set cell border color here
+//            cell!.layer.borderWidth = 1 // set border width here
+
         }
         
         if tableView == self.lunchTableView {
@@ -257,6 +281,7 @@ class CaloriesViewController: UIViewController, UITableViewDataSource, UITableVi
             let label = UILabel.init(frame: CGRect(x:50,y:0,width:50,height:20))
             label.text = String(describing: lunchCalories[indexPath.row])
             cell!.accessoryView = label
+
         }
         
         if tableView == self.dinnerTableView {
@@ -270,6 +295,7 @@ class CaloriesViewController: UIViewController, UITableViewDataSource, UITableVi
             let label = UILabel.init(frame: CGRect(x:50,y:0,width:50,height:20))
             label.text = String(describing: dinnerCalories[indexPath.row])
             cell!.accessoryView = label
+
             
         }
         
@@ -285,8 +311,9 @@ class CaloriesViewController: UIViewController, UITableViewDataSource, UITableVi
             label.text = String(describing: snackCalories[indexPath.row])
             cell!.accessoryView = label
             
+            
         }
-
+        
         return cell!
     }
     
@@ -311,7 +338,6 @@ class CaloriesViewController: UIViewController, UITableViewDataSource, UITableVi
                 lunchTableView.insertRows(at: [newIndexPath], with: .automatic)
                 lunchTotal += food.getCalorie()
                 lunchLabelTotal.text = String(describing: lunchTotal)
-
             case "Dinner":
                 let newIndexPath = IndexPath(row: dinner.count, section: 0)
                 dinner.append(food.getName())
@@ -326,14 +352,13 @@ class CaloriesViewController: UIViewController, UITableViewDataSource, UITableVi
                 snackTableView.insertRows(at: [newIndexPath], with: .automatic)
                 snackTotal += food.getCalorie()
                 snackLabelTotal.text = String(describing: snackTotal)
-
+                
             default:
                 print("Error in unwindToCalorieList")
             }
             
             let userId = Auth.auth().currentUser?.uid
             Database.database().reference().child("calorieCounter").child(userId!).child(food.getDate()).child(foodType).child(food.getName()).setValue(food.getCalorie())
-
         }
     }
 }

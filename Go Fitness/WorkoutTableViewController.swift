@@ -22,6 +22,8 @@ class WorkoutTableViewController: UITableViewController {
     
     override func viewDidLoad() {
         super.viewDidLoad()
+        let akankshasColor = UIColor(red: CGFloat(0.053), green: CGFloat(0.069), blue: CGFloat(0.095), alpha: 1);
+        self.navigationController?.navigationBar.backgroundColor = akankshasColor
         let headerHeight = CGFloat(57)
         let footerHeight = CGFloat(57)
         let windowHeight = self.view.frame.height
@@ -100,8 +102,6 @@ class WorkoutTableViewController: UITableViewController {
         return cell!
     }
     
-    // MARK: - Navigation
-
     // In a storyboard-based application, you will often want to do a little preparation before navigation
     override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
         // Get the new view controller using segue.destinationViewController.

@@ -21,16 +21,22 @@ class CalculateCalorie: NSObject {
     }
     
     func calcCal() -> Int {
+
         var result: Int
-        let a = Double(10 * weight)
-        let b = Double(6.25 * height)
-    
+        var a: Double
+        var b: Double
+        var c: Double
+
         if (gender == "Male"){
-            let c = Double((5 * age + 5))
-            result =  Int((a + b - c) * 1.3)
+            a = (13.7516 * weight)
+            b = (5.0033 * height)
+            c = (6.7550 * Double(age))
+            result = Int((66.4730 + a + b - c))
         }else{
-            let c = Double(5 * age - 161)
-            result = Int((a + b - c) * 1.3)
+            a = (9.5634 * weight)
+            b = (1.8496 * height)
+            c = (4.6756 * Double(age))
+            result = Int((655.0955 + a + b - c))
         }
     
         return result

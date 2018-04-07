@@ -47,6 +47,7 @@ class Steps {
                 }
             })
         }
+        
         if(CMPedometer.isStepCountingAvailable()){
             let fromDate = Date(timeIntervalSinceNow: -86400 * 7)
             self.pedometer.queryPedometerData(from: fromDate, to: Date()) { (data : CMPedometerData!, error) -> Void in
@@ -67,7 +68,6 @@ class Steps {
         }
     }
 
-    
     func getActivityType()->String{
         return self.activityType
     }

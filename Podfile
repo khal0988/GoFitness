@@ -9,10 +9,12 @@ target 'Go Fitness' do
   pod 'Firebase/Database'
   pod 'Firebase/Auth'
   pod 'Firebase/Storage'
-      pod 'GooglePlaces'
-      pod 'GooglePlacePicker'
-      pod 'GoogleMaps'
-      pod 'Charts'
+  pod 'GooglePlaces'
+  pod 'GooglePlacePicker'
+  pod 'Charts'
+  pod 'GoogleMaps'
+  pod 'FBSDKCoreKit'
+  pod 'FBSDKLoginKit'
   # Pods for Go Fitness
 
   target 'Go FitnessTests' do

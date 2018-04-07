@@ -28,6 +28,8 @@ class ProgressViewController: UIViewController, ChartViewDelegate {
     
     override func viewDidLoad() {
         super.viewDidLoad()
+        let akankshasColor = UIColor(red: CGFloat(0.053), green: CGFloat(0.069), blue: CGFloat(0.095), alpha: 1);
+        self.navigationController?.navigationBar.backgroundColor = akankshasColor
         
         let calender = Calendar.current
         let month = calender.shortMonthSymbols[calender.component(.month, from: Date())-1]

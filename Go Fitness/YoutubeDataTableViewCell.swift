@@ -18,7 +18,6 @@ class YoutubeDataTableViewCell: UITableViewCell, WKNavigationDelegate {
         super.awakeFromNib()
         webView.scrollView.isScrollEnabled = false
         webView.navigationDelegate = self
-
     }
 
     override func setSelected(_ selected: Bool, animated: Bool) {
