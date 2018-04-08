@@ -24,6 +24,7 @@ class SearchViewController: UITableViewController, GMSPlacePickerViewControllerD
         super.viewDidLoad()
         let akankshasColor = UIColor(red: CGFloat(0.053), green: CGFloat(0.069), blue: CGFloat(0.095), alpha: 1);
         self.navigationController?.navigationBar.backgroundColor = akankshasColor
+
         self.recentPlacesTableView.tableFooterView = UIView()
         
         if Auth.auth().currentUser?.uid == nil {
@@ -69,6 +70,9 @@ class SearchViewController: UITableViewController, GMSPlacePickerViewControllerD
         let config = GMSPlacePickerConfig(viewport: nil)
         let placePicker = GMSPlacePickerViewController(config: config)
         placePicker.delegate = self
+        
+        let akankshasColor = UIColor(red: CGFloat(0.053), green: CGFloat(0.069), blue: CGFloat(0.095), alpha: 1);
+        placePicker.navigationController?.navigationBar.backgroundColor = akankshasColor
         present(placePicker, animated: true, completion: nil)
     }
     
@@ -88,7 +92,7 @@ class SearchViewController: UITableViewController, GMSPlacePickerViewControllerD
     func handleLogout() {
         do {
             try Auth.auth().signOut()
-            print("logged out successfullty")
+            print("logged out successfully")
             // jump to login view
             let loginViewController = self.storyboard?.instantiateViewController(withIdentifier: LoginControllerIdentifier)
             present(loginViewController!, animated: true, completion: nil)

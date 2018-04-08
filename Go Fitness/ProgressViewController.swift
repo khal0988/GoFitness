@@ -18,8 +18,8 @@ class ProgressViewController: UIViewController, ChartViewDelegate {
     private var shouldStartUpdating: Bool = true
 
     @IBOutlet weak var progressView: UIView!
-    
     @IBOutlet weak var todaysDate: UILabel!
+    
     let testArray: [String] = []
     var convertedArray: [Date] = []
     var days = [String]()
@@ -43,7 +43,8 @@ class ProgressViewController: UIViewController, ChartViewDelegate {
         
         progressView.layer.borderWidth = 3.0
         progressView.layer.cornerRadius = 10.0
-        progressView.layer.borderColor = UIColor.blue.cgColor
+        let teal = UIColor(red: CGFloat(0), green: CGFloat(0.4), blue: CGFloat(0.5), alpha: 1);
+        progressView.layer.borderColor = teal.cgColor
 
         _ = Timer.scheduledTimer(timeInterval: 0.4, target: self, selector: #selector(self.updateSteps), userInfo: nil, repeats: true)
 
@@ -82,7 +83,7 @@ class ProgressViewController: UIViewController, ChartViewDelegate {
             self.lineChartView.xAxis.labelPosition = .bottom
             self.lineChartView.xAxis.setLabelCount(self.days.count, force: true)
             self.lineChartView.chartDescription?.text = "Weight loss update"
-            self.lineChartView.gridBackgroundColor = UIColor.blue
+            self.lineChartView.gridBackgroundColor = teal
             self.lineChartView.noDataText = "No data provided"
             self.lineChartView.xAxis.valueFormatter = IndexAxisValueFormatter(values:self.xAxix)
             self.setChartData(days: self.days)
@@ -100,6 +101,8 @@ class ProgressViewController: UIViewController, ChartViewDelegate {
     }
     
     func setChartData(days : [String]) {
+        let teal = UIColor(red: CGFloat(0), green: CGFloat(0.4), blue: CGFloat(0.5), alpha: 1);
+        
         // 1 - creating an array of data entries
         var yVals1 : [ChartDataEntry] = [ChartDataEntry]()
         for i in 0..<days.count{
@@ -109,14 +112,13 @@ class ProgressViewController: UIViewController, ChartViewDelegate {
         // 2 - create a data set with our array
         let set1: LineChartDataSet = LineChartDataSet(values: yVals1, label: "Weights")
         set1.axisDependency = .left // Line will correlate with left axis values
-        set1.setColor(UIColor.blue.withAlphaComponent(0.5)) // our line's opacity is 50%
-        set1.setCircleColor(UIColor.blue) // our circle will be dark red
+        set1.setColor(teal.withAlphaComponent(0.5)) // our line's opacity is 50%
+        set1.setCircleColor(teal) // our circle will be dark red
         set1.circleRadius = 6.0 // the radius of the node circle
         set1.fillAlpha = 65 / 255.0
-        set1.fillColor = UIColor.blue
+        set1.fillColor = teal
         set1.highlightColor = UIColor.white
         set1.drawCircleHoleEnabled = true
-        
         
         var dataSets = [IChartDataSet]()
         dataSets.append(set1)

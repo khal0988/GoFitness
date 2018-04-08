@@ -17,7 +17,6 @@
 		B251BBA8206D97F500D944A4 /* VideosTableViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = B251BBA7206D97F500D944A4 /* VideosTableViewController.swift */; };
 		B251BBAA206D98B300D944A4 /* YoutubeDataTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = B251BBA9206D98B300D944A4 /* YoutubeDataTableViewCell.swift */; };
 		B254E2F22076B7C000FA77A8 /* AddCaloriesViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = B254E2F12076B7C000FA77A8 /* AddCaloriesViewController.swift */; };
-		B25F779A207837B10077D9B6 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = B25F7799207837B00077D9B6 /* Assets.xcassets */; };
 		B26F0A29206F14AE003DD375 /* ProgressViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = B26F0A28206F14AE003DD375 /* ProgressViewController.swift */; };
 		B2832DD120744ED00093418E /* CaloriesViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = B2832DD020744ED00093418E /* CaloriesViewController.swift */; };
 		B2832DD3207458C80093418E /* Food.swift in Sources */ = {isa = PBXBuildFile; fileRef = B2832DD2207458C80093418E /* Food.swift */; };
@@ -25,6 +24,7 @@
 		B2A0F573206B06360012877B /* RecentPlacesDeck.swift in Sources */ = {isa = PBXBuildFile; fileRef = B2A0F572206B06360012877B /* RecentPlacesDeck.swift */; };
 		B2A0F576206D6AE50012877B /* WorkoutTableViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = B2A0F575206D6AE50012877B /* WorkoutTableViewController.swift */; };
 		B2C5439C2072AEC2004CA05B /* Steps.swift in Sources */ = {isa = PBXBuildFile; fileRef = B2C5439B2072AEC2004CA05B /* Steps.swift */; };
+		B2F4D575207951CE00BA5884 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = B2F4D574207951CE00BA5884 /* Assets.xcassets */; };
 		B970E3252062BF9800CA9265 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = B970E3242062BF9800CA9265 /* AppDelegate.swift */; };
 		B970E3272062BF9800CA9265 /* SignInViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = B970E3262062BF9800CA9265 /* SignInViewController.swift */; };
 		B970E32A2062BF9800CA9265 /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = B970E3282062BF9800CA9265 /* Main.storyboard */; };
@@ -67,7 +67,6 @@
 		B251BBA7206D97F500D944A4 /* VideosTableViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = VideosTableViewController.swift; sourceTree = "<group>"; };
 		B251BBA9206D98B300D944A4 /* YoutubeDataTableViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = YoutubeDataTableViewCell.swift; sourceTree = "<group>"; };
 		B254E2F12076B7C000FA77A8 /* AddCaloriesViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AddCaloriesViewController.swift; sourceTree = "<group>"; };
-		B25F7799207837B00077D9B6 /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
 		B26F0A28206F14AE003DD375 /* ProgressViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ProgressViewController.swift; sourceTree = "<group>"; };
 		B2832DD020744ED00093418E /* CaloriesViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CaloriesViewController.swift; sourceTree = "<group>"; };
 		B2832DD2207458C80093418E /* Food.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Food.swift; sourceTree = "<group>"; };
@@ -75,6 +74,7 @@
 		B2A0F572206B06360012877B /* RecentPlacesDeck.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RecentPlacesDeck.swift; sourceTree = "<group>"; };
 		B2A0F575206D6AE50012877B /* WorkoutTableViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = WorkoutTableViewController.swift; sourceTree = "<group>"; };
 		B2C5439B2072AEC2004CA05B /* Steps.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Steps.swift; sourceTree = "<group>"; };
+		B2F4D574207951CE00BA5884 /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
 		B33A7228B6EF7F9988957B8B /* Pods_Go_FitnessTests.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_Go_FitnessTests.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 		B970E3212062BF9700CA9265 /* Go Fitness.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = "Go Fitness.app"; sourceTree = BUILT_PRODUCTS_DIR; };
 		B970E3242062BF9800CA9265 /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
@@ -176,9 +176,9 @@
 				B970E3302062BF9800CA9265 /* Info.plist */,
 				B970E3522062C80400CA9265 /* SignUpViewController.swift */,
 				B9D4147A20645CE4004A54B6 /* ProfileViewController.swift */,
-				B25F7799207837B00077D9B6 /* Assets.xcassets */,
 				B22C6CF32066F69A00768BCC /* GoogleService-Info.plist */,
 				B22C6CF52069BDDA00768BCC /* CalculateBMI.swift */,
+				B2F4D574207951CE00BA5884 /* Assets.xcassets */,
 				B22C6CF72069C2B500768BCC /* CalculateCalorie.swift */,
 				B22C6CFB206AE8D000768BCC /* SearchViewController.swift */,
 				B2A0F570206B04FB0012877B /* Place.swift */,
@@ -330,7 +330,7 @@
 			files = (
 				B970E32F2062BF9800CA9265 /* LaunchScreen.storyboard in Resources */,
 				B22C6CF42066F69A00768BCC /* GoogleService-Info.plist in Resources */,
-				B25F779A207837B10077D9B6 /* Assets.xcassets in Resources */,
+				B2F4D575207951CE00BA5884 /* Assets.xcassets in Resources */,
 				B970E32A2062BF9800CA9265 /* Main.storyboard in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;

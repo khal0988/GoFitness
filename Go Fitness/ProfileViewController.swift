@@ -7,11 +7,13 @@
 
 import UIKit
 import Firebase
+import FBSDKLoginKit
 
-class ProfileViewController: UIViewController, UIImagePickerControllerDelegate, UINavigationControllerDelegate, UIPickerViewDelegate, UIPickerViewDataSource {
+class ProfileViewController: UIViewController, UIImagePickerControllerDelegate, UINavigationControllerDelegate, UIPickerViewDelegate, UIPickerViewDataSource, UITextViewDelegate {
     
     let LoginControllerIdentifier = "LoginControllerIdentifier"
     
+    @IBOutlet weak var bmiTextView: UITextView!
     @IBOutlet weak var ageTextField: UITextField!
     @IBOutlet weak var userName: UILabel!
     @IBOutlet weak var profileImageView: UIImageView!
@@ -24,7 +26,7 @@ class ProfileViewController: UIViewController, UIImagePickerControllerDelegate, 
     @IBOutlet weak var genderPicker: UIPickerView!
     
     private let NUM_COMPONENTS = 1
-    private let genders = ["", "Male", "Female"]
+    private let genders = [" ", "Male", "Female"]
     private var profile_image_url: URL?
     
     override func viewDidLoad() {
@@ -40,17 +42,26 @@ class ProfileViewController: UIViewController, UIImagePickerControllerDelegate, 
         self.profileImageView.layer.cornerRadius = profileImageView.frame.width / 2
         self.profileImageView.layer.masksToBounds = true
 
-
         if Auth.auth().currentUser?.uid == nil {
             handleLogout()
         }
         
+        let attributedString = NSMutableAttributedString(string: "BMI")
+        attributedString.addAttribute(.link, value: "https://www.cdc.gov/healthyweight/assessing/bmi/index.html", range: NSRange(location: 0, length: 3))
+        bmiTextView.attributedText = attributedString
+        
+        bmiTextView.font = UIFont(name: (bmiTextView.font?.fontName)!, size: 17)
         loadUserProfileFromFirebase()
         _ = Steps()
         Steps.sharedSteps.setUp()
         Steps.sharedSteps.startUpdating()
         
     } // viewDidLoad
+    
+    func textView(_ textView: UITextView, shouldInteractWith URL: URL, in characterRange: NSRange, interaction: UITextItemInteraction) -> Bool {
+        UIApplication.shared.open(URL, options: [:])
+        return false
+    }
     
     func loadUserProfileFromFirebase() {
         let userID = Auth.auth().currentUser?.uid
@@ -94,10 +105,13 @@ class ProfileViewController: UIViewController, UIImagePickerControllerDelegate, 
     }
     
     func handleLogout() {
+        FBSDKLoginManager().logOut() // if logged in with facebook
+        
         do {
             try Auth.auth().signOut()
-            print("logged out successfullty")
+            print("logged out successfully")
             // jump to login view
+            
             let loginViewController = self.storyboard?.instantiateViewController(withIdentifier: LoginControllerIdentifier)
             present(loginViewController!, animated: true, completion: nil)
             
@@ -153,31 +167,31 @@ class ProfileViewController: UIViewController, UIImagePickerControllerDelegate, 
     // Mark: - Update user profile methods
     
     private func updateUserProfile() {
-        let pendingSavingAlert = displayActivityIndicator(message: "Saving...")
         
         let userID = Auth.auth().currentUser?.uid
         let row = genderPicker.selectedRow(inComponent: 0)
         let gender = genders[row]
         
-        if (row == 0) {
+        let weight = weightTextField.text
+        let age = ageTextField.text
+        let height = heightTextField.text
+
+        
+        if weight == "" || age == "" || height == "" || row == 0{
             let message:String = "All fields are required to perfrom calculations"
             self.displayAlert(myTitle: "Error", myMessage: message)
+            loadUserProfileFromFirebase()
             return
         }
         
-        guard let weight = weightTextField.text,
-            let height = heightTextField.text, let age = ageTextField.text else {
-                let message:String = "All fields are required to perfrom calculations"
-                self.displayAlert(myTitle: "Error", myMessage: message)
-                return
-        }
-        
-        let cm = CalculateBMI(weight: weight, height: height)
+        let pendingSavingAlert = displayActivityIndicator(message: "Saving...")
+
+        let cm = CalculateBMI(weight: weight!, height: height!)
         let bmi = cm.calcBmi()
         
         bmiField.text = String(format: "%.1f", bmi)
         
-        let calorie = CalculateCalorie(weight: weight, height: height, age: age, gender: gender)
+        let calorie = CalculateCalorie(weight: weight!, height: height!, age: age!, gender: gender)
         let cal = calorie.calcCal()
         calorieTextField.text = "\(cal)"
         
@@ -191,10 +205,11 @@ class ProfileViewController: UIViewController, UIImagePickerControllerDelegate, 
         let key: String = dateFormatterPrint.string(from: date)
         
         Database.database().reference().child("users").child(userID!).child("weight").setValue(weight)
-        Database.database().reference().child("weights").child(userID!).child(key).setValue(Double(weight))
+        Database.database().reference().child("weights").child(userID!).child(key).setValue(Double(weight!))
         Database.database().reference().child("users").child(userID!).child("height").setValue(height)
         Database.database().reference().child("users").child(userID!).child("age").setValue(age)
         Database.database().reference().child("users").child(userID!).child("gender").setValue(gender)
+        
         Database.database().reference().child("users").child(userID!).child("bmi").setValue(String(format: "%.1f", bmi))
         Database.database().reference().child("users").child(userID!).child("calories").setValue(String(format: "%d", cal))
         

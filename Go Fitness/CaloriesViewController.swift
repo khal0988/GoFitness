@@ -64,7 +64,7 @@ class CaloriesViewController: UIViewController, UITableViewDataSource, UITableVi
         self.lunchView.applyGradient(colours: [cyan, teal])
         self.dinnerView.applyGradient(colours: [cyan, teal])
         self.snackView.applyGradient(colours: [cyan, teal])
-
+        
         getDailyCalories()
         
         breakfastTableView.dataSource = self
@@ -220,7 +220,6 @@ class CaloriesViewController: UIViewController, UITableViewDataSource, UITableVi
         }) { (error) in
             print(error.localizedDescription)
         }
-        
     }
     
     func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
@@ -258,15 +257,23 @@ class CaloriesViewController: UIViewController, UITableViewDataSource, UITableVi
             }
             let foodName = breakfast[indexPath.row]
             cell!.textLabel?.text = foodName
-            let label = UILabel.init(frame: CGRect(x:50,y:0,width:50,height:20))
+            let label = UILabel.init(frame: CGRect(x:25,y:0,width:50,height:20))
+            label.textAlignment = .right
             label.text = String(describing: breakfastCalories[indexPath.row])
             cell!.accessoryView = label
-//            
-//            cell!.layer.frame.size.height = 5
-//            cell!.layer.cornerRadius = 10 //set corner radius here
-//            cell!.layer.borderColor = UIColor.black.cgColor  // set cell border color here
-//            cell!.layer.borderWidth = 1 // set border width here
-
+            
+            cell!.contentView.layer.cornerRadius = 2.0
+            cell!.contentView.layer.borderWidth = 1.0
+            cell!.contentView.layer.borderColor = UIColor.clear.cgColor
+            cell!.contentView.layer.masksToBounds = true;
+            
+            cell!.layer.shadowColor = UIColor.lightGray.cgColor
+            cell!.layer.shadowOffset = CGSize(width:0,height: 2.0)
+            cell!.layer.shadowRadius = 2.0
+            cell!.layer.shadowOpacity = 1.0
+            cell!.layer.masksToBounds = false;
+            cell!.layer.shadowPath = UIBezierPath(roundedRect:cell!.bounds, cornerRadius:cell!.contentView.layer.cornerRadius).cgPath
+            
         }
         
         if tableView == self.lunchTableView {
@@ -278,10 +285,22 @@ class CaloriesViewController: UIViewController, UITableViewDataSource, UITableVi
             
             let foodName = lunch[indexPath.row]
             cell!.textLabel?.text = foodName
-            let label = UILabel.init(frame: CGRect(x:50,y:0,width:50,height:20))
+            let label = UILabel.init(frame: CGRect(x:25,y:0,width:50,height:20))
+            label.textAlignment = .right
             label.text = String(describing: lunchCalories[indexPath.row])
             cell!.accessoryView = label
-
+            cell!.contentView.layer.cornerRadius = 2.0
+            cell!.contentView.layer.borderWidth = 1.0
+            cell!.contentView.layer.borderColor = UIColor.clear.cgColor
+            cell!.contentView.layer.masksToBounds = true;
+            
+            cell!.layer.shadowColor = UIColor.lightGray.cgColor
+            cell!.layer.shadowOffset = CGSize(width:0,height: 2.0)
+            cell!.layer.shadowRadius = 2.0
+            cell!.layer.shadowOpacity = 1.0
+            cell!.layer.masksToBounds = false;
+            cell!.layer.shadowPath = UIBezierPath(roundedRect:cell!.bounds, cornerRadius:cell!.contentView.layer.cornerRadius).cgPath
+            
         }
         
         if tableView == self.dinnerTableView {
@@ -292,10 +311,21 @@ class CaloriesViewController: UIViewController, UITableViewDataSource, UITableVi
             }
             let foodName = dinner[indexPath.row]
             cell!.textLabel?.text = foodName
-            let label = UILabel.init(frame: CGRect(x:50,y:0,width:50,height:20))
+            let label = UILabel.init(frame: CGRect(x:25,y:0,width:50,height:20))
+            label.textAlignment = .right
             label.text = String(describing: dinnerCalories[indexPath.row])
             cell!.accessoryView = label
-
+            cell!.contentView.layer.cornerRadius = 2.0
+            cell!.contentView.layer.borderWidth = 1.0
+            cell!.contentView.layer.borderColor = UIColor.clear.cgColor
+            cell!.contentView.layer.masksToBounds = true;
+            
+            cell!.layer.shadowColor = UIColor.lightGray.cgColor
+            cell!.layer.shadowOffset = CGSize(width:0,height: 2.0)
+            cell!.layer.shadowRadius = 2.0
+            cell!.layer.shadowOpacity = 1.0
+            cell!.layer.masksToBounds = false;
+            cell!.layer.shadowPath = UIBezierPath(roundedRect:cell!.bounds, cornerRadius:cell!.contentView.layer.cornerRadius).cgPath
             
         }
         
@@ -307,11 +337,21 @@ class CaloriesViewController: UIViewController, UITableViewDataSource, UITableVi
             }
             let foodName = snack[indexPath.row]
             cell!.textLabel?.text = foodName
-            let label = UILabel.init(frame: CGRect(x:50,y:0,width:50,height:20))
+            let label = UILabel.init(frame: CGRect(x:25,y:0,width:50,height:20))
+            label.textAlignment = .right
             label.text = String(describing: snackCalories[indexPath.row])
             cell!.accessoryView = label
+            cell!.contentView.layer.cornerRadius = 2.0
+            cell!.contentView.layer.borderWidth = 1.0
+            cell!.contentView.layer.borderColor = UIColor.clear.cgColor
+            cell!.contentView.layer.masksToBounds = true;
             
-            
+            cell!.layer.shadowColor = UIColor.lightGray.cgColor
+            cell!.layer.shadowOffset = CGSize(width:0,height: 2.0)
+            cell!.layer.shadowRadius = 2.0
+            cell!.layer.shadowOpacity = 1.0
+            cell!.layer.masksToBounds = false;
+            cell!.layer.shadowPath = UIBezierPath(roundedRect:cell!.bounds, cornerRadius:cell!.contentView.layer.cornerRadius).cgPath
         }
         
         return cell!

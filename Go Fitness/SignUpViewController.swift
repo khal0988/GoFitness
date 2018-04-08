@@ -47,11 +47,10 @@ class SignUpViewController: UIViewController, UITextFieldDelegate {
         let cyan = UIColor(red: CGFloat(0), green: CGFloat(0.6), blue: CGFloat(0.4), alpha: 1);
         let teal = UIColor(red: CGFloat(0), green: CGFloat(0.4), blue: CGFloat(0.5), alpha: 1);
         self.agreeAndJoinButton.applyGradient(colours: [cyan, teal])
+        self.agreeAndJoinButton.layer.cornerRadius = 5
         
     }
 
-
-    
     override func didReceiveMemoryWarning() {
         super.didReceiveMemoryWarning()
         // Dispose of any resources that can be recreated.

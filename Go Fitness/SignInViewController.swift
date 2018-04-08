@@ -13,6 +13,8 @@ import FBSDKLoginKit
 class SignInViewController: UIViewController, UITextFieldDelegate {
     let loginViewToProfileViewSegueIdentifier: String = "loginViewToProfileViewSegueIdentifier"
 
+    
+    @IBOutlet weak var fbLoginImage: UIImageView!
     @IBOutlet weak var signinButton: UIButton!
     @IBOutlet weak var emailTextField: UITextField!
     @IBOutlet weak var passwordTextField: UITextField!
@@ -33,7 +35,9 @@ class SignInViewController: UIViewController, UITextFieldDelegate {
         let cyan = UIColor(red: CGFloat(0), green: CGFloat(0.6), blue: CGFloat(0.4), alpha: 1);
         let teal = UIColor(red: CGFloat(0), green: CGFloat(0.4), blue: CGFloat(0.5), alpha: 1);
         self.signinButton.applyGradient(colours: [cyan, teal])
-        self.signinButton.layer.cornerRadius = 10
+        self.signinButton.layer.cornerRadius = 5
+        
+        self.fbLoginImage.layer.cornerRadius = 5
     }
     
     override func didReceiveMemoryWarning() {

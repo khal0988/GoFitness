@@ -24,6 +24,8 @@ class WorkoutTableViewController: UITableViewController {
         super.viewDidLoad()
         let akankshasColor = UIColor(red: CGFloat(0.053), green: CGFloat(0.069), blue: CGFloat(0.095), alpha: 1);
         self.navigationController?.navigationBar.backgroundColor = akankshasColor
+        self.navigationController?.navigationBar.tintColor = UIColor.white;
+
         let headerHeight = CGFloat(57)
         let footerHeight = CGFloat(57)
         let windowHeight = self.view.frame.height
@@ -66,7 +68,7 @@ class WorkoutTableViewController: UITableViewController {
     func handleLogout() {
         do {
             try Auth.auth().signOut()
-            print("logged out successfullty")
+            print("logged out successfully")
             // jump to login view
             let loginViewController = self.storyboard?.instantiateViewController(withIdentifier: LoginControllerIdentifier)
             present(loginViewController!, animated: true, completion: nil)
