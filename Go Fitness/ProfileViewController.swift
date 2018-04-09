@@ -26,7 +26,7 @@ class ProfileViewController: UIViewController, UIImagePickerControllerDelegate, 
     @IBOutlet weak var genderPicker: UIPickerView!
     
     private let NUM_COMPONENTS = 1
-    private let genders = [" ", "Male", "Female"]
+    private let genders = ["", "Male", "Female"]
     private var profile_image_url: URL?
     
     override func viewDidLoad() {

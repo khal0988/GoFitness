@@ -122,7 +122,7 @@
 		392F2CF142BAA751AC1BB61D8B757D98 /* pb.h in Headers */ = {isa = PBXBuildFile; fileRef = D403EA6BC7E75CB0023283EB04646F0B /* pb.h */; settings = {ATTRIBUTES = (Public, ); }; };
 		3A34D865015EC4111D69150C84B19E67 /* FBSDKApplicationDelegate.m in Sources */ = {isa = PBXBuildFile; fileRef = 2150540246B87E69FEB78064EBC56F72 /* FBSDKApplicationDelegate.m */; settings = {COMPILER_FLAGS = "-w"; }; };
 		3A50F5C8ECED9627F2EBD97F61BD376D /* pb_common.c in Sources */ = {isa = PBXBuildFile; fileRef = 7B494AAB8A70D58A4A5158F26F2E1B14 /* pb_common.c */; settings = {COMPILER_FLAGS = "-fno-objc-arc -fno-objc-arc -fno-objc-arc"; }; };
-		3AC1624E17DACAC3AEA1D9543E58ED55 /* DataApproximator+N.swift in Sources */ = {isa = PBXBuildFile; fileRef = 066D4778508AA373B4A1F5FC8155B93C /* DataApproximator+N.swift */; };
+		3AC1624E17DACAC3AEA1D9543E58ED55 /* DataApproximator+N.swift in Sources */ = {isa = PBXBuildFile; fileRef = 066D4778508AA373B4A1F5FC8155B93C /* DataApproximator+N.swift */; settings = {COMPILER_FLAGS = "-w"; }; };
 		3AC9A6193ACBB2022412D554C807ECA4 /* BarChartDataProvider.swift in Sources */ = {isa = PBXBuildFile; fileRef = ECA6C9333C94B7250867F24B1DF5D0E1 /* BarChartDataProvider.swift */; };
 		3AE399BC7EEED91335666803DBF27D2F /* FBSDKBridgeAPIProtocolWebV2.h in Headers */ = {isa = PBXBuildFile; fileRef = FE7C8392AF817F0EA14BE8C48EE59E76 /* FBSDKBridgeAPIProtocolWebV2.h */; settings = {ATTRIBUTES = (Project, ); }; };
 		3BCA2F7AC539F1F2AC0B1A2D72913816 /* FBSDKAppEvents+Internal.h in Headers */ = {isa = PBXBuildFile; fileRef = 0BFAB73FBC3C390891EFCAA595A63227 /* FBSDKAppEvents+Internal.h */; settings = {ATTRIBUTES = (Project, ); }; };
@@ -272,7 +272,7 @@
 		879D3BAFB02204D2E4ED929CC53CC633 /* Bolts-dummy.m in Sources */ = {isa = PBXBuildFile; fileRef = 9717BEF42AB2610645477C598C390625 /* Bolts-dummy.m */; };
 		87FFE70D58AD1DB646CC7F950888A47A /* FBSDKLoginManagerLoginResult.h in Headers */ = {isa = PBXBuildFile; fileRef = 9AC7A6AFE80F1376F071C6B938FEDE14 /* FBSDKLoginManagerLoginResult.h */; settings = {ATTRIBUTES = (Public, ); }; };
 		8852FD9AFC242520924D98BE9C4E2477 /* GTMSessionFetcher.h in Headers */ = {isa = PBXBuildFile; fileRef = 1D6B68547BAACC132352E0F8B0105E02 /* GTMSessionFetcher.h */; settings = {ATTRIBUTES = (Public, ); }; };
-		8992239AF1272804CEE86F780052CF62 /* DataApproximator.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7B0DD69FBCFC02CD3E245655DFB7BAA2 /* DataApproximator.swift */; };
+		8992239AF1272804CEE86F780052CF62 /* DataApproximator.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7B0DD69FBCFC02CD3E245655DFB7BAA2 /* DataApproximator.swift */; settings = {COMPILER_FLAGS = "-w"; }; };
 		8993A2EE29E325936C594E09BF4E3301 /* FBSDKServerConfiguration.h in Headers */ = {isa = PBXBuildFile; fileRef = DE87BAC7EC2367B8BBCE8F62C7345A99 /* FBSDKServerConfiguration.h */; settings = {ATTRIBUTES = (Project, ); }; };
 		89B2F3F5B0F79FC7AD2C850A005343C1 /* FBSDKCoreKit-umbrella.h in Headers */ = {isa = PBXBuildFile; fileRef = A166BA24700E6AAEA65EAFADBE0E65AD /* FBSDKCoreKit-umbrella.h */; settings = {ATTRIBUTES = (Public, ); }; };
 		89CE4CEB1524909FD38F5FAABA2D28C8 /* FBSDKProfile.m in Sources */ = {isa = PBXBuildFile; fileRef = 7D715A6682B92258F8EE77D24013BC0B /* FBSDKProfile.m */; };
